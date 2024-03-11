@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keyvaluestore-deployment1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keyvaluestore
+  template:
+    metadata:
+      labels:
+        app: keyvaluestore
+    spec:
+      containers:
+        - name: keyvaluestore
+          image: rmohsina/assessments:server
+          ports:
+            - containerPort: 5004
